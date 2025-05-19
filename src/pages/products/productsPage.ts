@@ -21,7 +21,10 @@ export class ProductsPage {
         this.firstFoundProductAddToCartButton = this.firstFoundProduct.locator('a[class="btn btn-default add-to-cart"]').first();
     }
 
-
+    /**
+     * Searches for a product by its name.
+     * @param productName 
+     */
     async searchForProduct(productName: string) {
         await this.signUpButton.fill(productName);
         await this.searchButton.click();

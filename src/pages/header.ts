@@ -5,11 +5,14 @@ export class Header {
 
     readonly signUpButton: Locator;
     readonly productsLink: Locator;
+    readonly logoutLink: Locator;
+    readonly deleteAccountLink: Locator;
 
     constructor(readonly page: Page) {
         this.signUpButton = page.locator('a[href="/login"]');
         this.productsLink = page.locator('a[href="/products"]');
-
+        this.logoutLink = page.locator('a[href="/logout"]');
+        this.deleteAccountLink = page.locator('a[href="/delete_account"]');
     }
 
     /**
@@ -24,5 +27,12 @@ export class Header {
      */
     async goToProductsPage() {
         await this.productsLink.click();
+    }
+
+    /**
+     * Clicks the logout link in the header.
+     */
+    async logoutFromAccount() {
+        await this.logoutLink.click();
     }
 }
